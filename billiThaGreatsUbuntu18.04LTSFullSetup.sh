@@ -31,6 +31,9 @@ sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt update -y
 sudo apt install woeusb -y
 
+
+
+
 echo "Install qBittorrent"
 sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 sudo apt update -y
@@ -104,6 +107,12 @@ echo "Installing Synaptic package manager"
 sudo apt-get install synaptic -y
 sudo apt update -y
 sudo apt upgrade -y
+
+echo "install anbox "
+sudo apt update -y
+sudo snap install --beta --devmode anbox
+sudo apt install dbus-x11
+export $(dbus-launch)
 
 echo "Discord install"
 sudo apt install gdebi-core wget -y
