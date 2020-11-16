@@ -31,9 +31,6 @@ sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt update -y
 sudo apt install woeusb -y
 
-
-
-
 echo "Install qBittorrent"
 sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 sudo apt update -y
@@ -80,7 +77,7 @@ sudo dpkg --add-architecture i386
 
 echo "Upgrading Firmwares and Drivers"
 sudo apt install git-all -y
-sudo ubuntu-drivers autoinstall -y
+sudo ubuntu-drivers autoinstall
 
 
 echo "Stopping snap full"
@@ -107,12 +104,6 @@ echo "Installing Synaptic package manager"
 sudo apt-get install synaptic -y
 sudo apt update -y
 sudo apt upgrade -y
-
-echo "install anbox "
-sudo apt update -y
-sudo snap install --beta --devmode anbox
-sudo apt install dbus-x11
-export $(dbus-launch)
 
 echo "Discord install"
 sudo apt install gdebi-core wget -y
@@ -180,10 +171,9 @@ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
 
 sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" >> /etc/apt/sources.list.d/virtualbox.list'
-sudo apt install virtualbox-6.1 -y
 echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
-
-
+sudo apt update -y
+sudo apt install virtualbox-6.1 -y
 echo " add some repo for veracrypt"
 sudo add-apt-repository ppa:unit193/encryption -y
 
@@ -207,7 +197,7 @@ sudo apt install cherrytree -y
 
 
 echo " install cmd line youtube downlaod manager"
-sudo wget https://yt-dl.org/downloads/latest/youtube-dl -y
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl
 sudo chmod +x youtube-dl
 sudo cp youtube-dl /usr/bin/youtube-dl
 
@@ -285,7 +275,7 @@ ln -s $(which gpg1) gpg
 echo " Avro installing"
 cd $HOME
 wget "https://github.com/ugcoder/avro/releases/download/v2.0/avro_2.0-1_all.deb"
-sudo dpkg -i avro_2.0-1_all.deb 
+sudo dpkg -i avro_2.0-1_all.deb
 sudo apt-get install -y -f
 ibus restart
 cd $HOME
@@ -326,7 +316,7 @@ gsettings set org.gnome.desktop.interface clock-show-date true
 
 echo "installing programming stuff(Codeblocks::Vscode::node JS::intelij::AndroidStudio::Pycharm): if you dont want, you can cancel by pressing Ctrl+c"|lolcat
 
-
+sudo apt install snapd -y
 echo "VS CODE"
 sudo apt install software-properties-common apt-transport-https wget -y
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
@@ -506,7 +496,7 @@ echo -ne '############################################   (100%)\r'
 echo -ne '\n'
 clear
 sudo su
-cat <<EOT >>/etc/babash.bashrc
+cat <<EOT >>/etc/bash.bashrc
 clear
 figlet -f mini "Billi The Great!"|lolocat
 EOT
