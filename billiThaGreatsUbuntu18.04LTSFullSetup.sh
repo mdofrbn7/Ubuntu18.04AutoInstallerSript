@@ -498,7 +498,7 @@ clear
 sudo su
 cat <<EOT >>/etc/bash.bashrc
 clear
-figlet -f mini "Billi The Great!"|lolocat
+figlet -f mini "Billi The Great!"|lolcat
 EOT
 exit
 figlet -f mini "Billi The Great!"
